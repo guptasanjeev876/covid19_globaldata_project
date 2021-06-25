@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=2">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.2/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.26.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body class="body">
+  <style>
+    .body{
+      background-color: #e7e4e4		;
+    }
+ 
+  </style>
+
+  <div class="container-fluid mt-4 ">
+    <h3 class=mt-4>Covid19- Global Data</h3>
+
+    <div class="row">
+      <div class=" col-md-2 m-2 card">
+        <div class="card-body">
+          <h6 class="card-title">New Confirmed</h6>
+          <p class="card-text">{{covid.NewConfirmed}}</p>
+        </div>
+      </div>
+      <div class="col-md-2 m-2 card">
+        <div class="card-body">
+          <h6 class="card-title">Total Confirmed</h6>
+          <p class="card-text">{{covid.TotalConfirmed}}</p>
+        </div>
+      </div>
+      <div class="col-md-2 m-2 card">
+        <div class="card-body">
+          <h6 class="card-title">New Deaths</h6>
+          <p class="card-text">{{covid.NewDeaths}}</p>
+        </div>
+      </div>
+
+
+      <div class="col-md-2 m-2 card">
+        <div class="card-body">
+          <h6 class="card-title">New Recovered</h6>
+          <p class="card-text">{{covid.NewRecovered}}</p>
+        </div>
+      </div>
+      <div class="col-md-2 m-2 card">
+        <div class="card-body">
+          <h6 class="card-title">Total Recovered</h6>
+          <p class="card-text">{{covid.TotalRecovered}}</p>
+        </div>
+      </div>
+      <div class="col-md-2 m-2 card">
+        <div class="card-body">
+          <h6 class="card-title">Date and Time</h6>
+          <p class="card-text">{{covid.Date}}</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Sr.no</th>
+            <th>Country</th>
+            <th>Total Confirmed</th>
+            <th>Total Deaths</th>
+            <th>Total Recovered</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for count in countrydata %}
+          <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{count.Country}}</td>
+            <td>{{count.TotalConfirmed}}</td>
+            <td>{{count.TotalDeaths}}</td>
+            <td>{{count.TotalRecovered}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+
+
+</body>
+
+</html>
