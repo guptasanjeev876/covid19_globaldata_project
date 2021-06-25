@@ -1,5 +1,6 @@
 from django.shortcuts import render
 import requests
+from django.core.paginator import Paginator
 
 # Create your views here.
 def home(request):
@@ -16,4 +17,7 @@ def home(request):
             data = False
         except:
             data = True
-    return render(request, 'covid19app/home.html',{"covid":globaldata, "countrydata": countrydata})
+    paginator = Paginator(countrydata,100)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'covid19app/home.html',{"covid":globaldata, "countrydata": countrydata, "forms" : page_obj })

@@ -14,56 +14,50 @@
 <body class="body">
   <style>
     .body{
-      background-color: #e7e4e4		;
+      background-color: #ebebe0	;
     }
  
   </style>
 
   <div class="container-fluid mt-4 ">
-    <h3 class=mt-4>Covid19- Global Data</h3>
-
-    <div class="row">
-      <div class=" col-md-2 m-2 card">
+    <h3 class=" text-center">Covid19 Global Data<span></h3>
+    <div class="row text-center justify-content-center ">
+      <div class="col-md-2 m-2 bg-primary card">
         <div class="card-body">
           <h6 class="card-title">New Confirmed</h6>
           <p class="card-text">{{covid.NewConfirmed}}</p>
         </div>
       </div>
-      <div class="col-md-2 m-2 card">
+      <div class="col-md-2 m-2 bg-warning card">
         <div class="card-body">
           <h6 class="card-title">Total Confirmed</h6>
           <p class="card-text">{{covid.TotalConfirmed}}</p>
         </div>
       </div>
-      <div class="col-md-2 m-2 card">
+      <div class="col-md-2 m-2  bg-danger card">
         <div class="card-body">
           <h6 class="card-title">New Deaths</h6>
           <p class="card-text">{{covid.NewDeaths}}</p>
         </div>
       </div>
-
-
-      <div class="col-md-2 m-2 card">
+  
+ 
+      <div class="col-md-2 m-2 bg-success card">
         <div class="card-body">
           <h6 class="card-title">New Recovered</h6>
           <p class="card-text">{{covid.NewRecovered}}</p>
         </div>
       </div>
-      <div class="col-md-2 m-2 card">
+      <div class="col-md-2 m-2 bg-info card">
         <div class="card-body">
           <h6 class="card-title">Total Recovered</h6>
           <p class="card-text">{{covid.TotalRecovered}}</p>
         </div>
       </div>
-      <div class="col-md-2 m-2 card">
-        <div class="card-body">
-          <h6 class="card-title">Date and Time</h6>
-          <p class="card-text">{{covid.Date}}</p>
-        </div>
-      </div>
-
     </div>
-    <div class="container">
+    </div>
+    <div class="container mt-3">
+      <h4 class="text-center">Covid19 countries data</h4>
       <table class="table">
         <thead>
           <tr>
@@ -86,6 +80,15 @@
           {% endfor %}
         </tbody>
       </table>
+      <span>
+        {% if forms.has_previous %}
+        <a href="?page={{forms.previous_page_numbers}} ">Previous</a>
+        {% endif %}
+        <span>{{forms.number}}</span>
+        {% if forms.has_next %}
+        <a href ="?page={{forms.next_page_number}} "> Next</a>
+        {% endif %}
+    </span>
     </div>
 
 
